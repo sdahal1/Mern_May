@@ -52,7 +52,6 @@ class Curler extends Olympian{
         console.log("I practiced like cinderella, now im sweeping professionally. Follow your dreams.")
         this.energyLevel -= 50;
         return this;
-
     }
 
 }
