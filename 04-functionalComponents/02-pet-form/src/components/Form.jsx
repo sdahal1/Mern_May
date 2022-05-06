@@ -11,6 +11,8 @@ const Form = ()=>{
     let [imgUrl, setImgUrl] = useState("");
     let [specialReq, setSpecialReq] = useState("");
 
+    let currentDate = new Date();
+    let formDate = new Date(date);
 
     return(
         <>
@@ -19,10 +21,16 @@ const Form = ()=>{
                 <div className="form-group">
                     <label htmlFor="">Name:</label>
                     <input type="text" onChange={(e)=>{setName(e.target.value)}} name="" id="" className="form-control" />
+                    {
+                       name.length<3? <p className='text-danger'>Name must be at least three characters!</p> : null
+                    }
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Age:</label>
                     <input type="number" onChange={(e)=>{setAge(e.target.value)}} name="" id="" className="form-control" />
+                    {
+                        age<1? <p className='text-danger'>Minimum age of 1 is required!</p> : null
+                    }
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Type:</label>
@@ -35,6 +43,10 @@ const Form = ()=>{
                 <div className="form-group">
                     <label htmlFor="">Appointment Date:</label>
                     <input type="date" className="form-control" onChange={(e)=>{setDate(e.target.value)}} />
+                    {
+                        
+                        formDate<currentDate? <p className='text-danger'>Date cannot be in past</p> : null
+                    }
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Pet Image Url:</label>
